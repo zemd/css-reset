@@ -1,0 +1,28 @@
+{
+  "name": "@repo/css-reset",
+  "version": "0.0.0",
+  "license": "Apache-2.0",
+  "description": "css reset for modern web development",
+  "author": {
+    "name": "Dmytro Zelenetskyi",
+    "email": "dmytro.zelenetskyi@gmail.com",
+    "url": "https://codeandgin.co"
+  },
+  "homepage": "https://github.com/zemd/css-reset",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zemd/css-reset.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zemd/css-reset/issues"
+  },
+  "files": [
+    "reset.css"
+  ],
+  "scripts": {
+    "release": "changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.1"
+  }
+}
