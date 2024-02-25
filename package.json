@@ -1,5 +1,5 @@
 {
-  "name": "@repo/css-reset",
+  "name": "@zemd/css-reset",
   "version": "0.0.0",
   "license": "Apache-2.0",
   "description": "css reset for modern web development",
