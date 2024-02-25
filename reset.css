@@ -16,8 +16,6 @@
      */
     text-size-adjust: 100%; /* apple.com sets this value in html, so am I */
     /**
-      * apple.com uses this setting for the quotes, probably because of it is global site
-      * but I need to research more on how it might be correct/incorrect
       * see more: https://developer.mozilla.org/en-US/docs/Web/CSS/quotes
       */
     quotes: "“" "”";
