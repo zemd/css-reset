@@ -13,7 +13,7 @@ pnpm add @zemd/css-reset
 ## Usage
 
 ```css
-@import "@zemd/css-reset";
+@import "@zemd/css-reset/reset.css";
 ```
 
 ## License
