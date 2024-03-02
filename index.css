@@ -1,102 +1,102 @@
-@layer reset {
-  *, *::before, *::after {
-    box-sizing: border-box;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-  :where(:not(dialog)) {
-    margin: 0;
-  }
+:where(:not(dialog)) {
+  margin: 0;
+}
 
-  :where(html) {
-    /**
+:where(html) {
+  /**
      * controls the text inflation algorithm used on some smartphones and tablets. 
      * Other browsers will ignore this property.
      * When an element containing text uses 100% of the screen's width, 
      * the algorithm increases its text size, but without modifying the layout.
      */
-    text-size-adjust: 100%;
-    /**
+  text-size-adjust: 100%;
+  /**
       * see more: https://developer.mozilla.org/en-US/docs/Web/CSS/quotes
       */
-    quotes: "“" "”";
+  quotes: "“" "”";
 
-    /**
+  /**
      * font-feature-settings: controls advanced typographic features in OpenType fonts.
      * values: normal | "liga" 0 | "tnum" | "smcp", "zero" ...
      * 
      * Tailwind sets the `font-feature-settings` inside `html`, so for better consistency
      * I override it here.
      */
-    font-feature-settings: "kern";
-    /* block-size: 100%; */
-  }
+  font-feature-settings: "kern";
+  /* block-size: 100%; */
+}
 
-  :where(body) {
-    font-variant-ligatures: common-ligatures;
-    text-rendering: optimizeLegibility;
-    font-weight: 400;
-    font-style: normal;
+:where(body) {
+  font-variant-ligatures: common-ligatures;
+  text-rendering: optimizeLegibility;
+  font-weight: 400;
+  font-style: normal;
 
-    /* min-block-size: 100%; */
-  }
+  /* min-block-size: 100%; */
+}
 
-  :where(body, input, textarea, select, button) {
-    /**
+:where(body, input, textarea, select, button) {
+  /**
      * font-synthesis: lets you specify whether or not the browser may synthesize 
      * the bold, italic, and/or small-caps typefaces when they are 
      * missing in the specified font-family.
      * values: none | weight | style | small-caps
      * allows multiple.
      */
-    font-synthesis: none;
-    font-feature-settings: "kern";
-    /**
+  font-synthesis: none;
+  font-feature-settings: "kern";
+  /**
      * -webkit-font-smoothing: antialised; -- Smooth the font on the level of the pixel, 
      * as opposed to the subpixel.
      * Switching from subpixel rendering to anti-aliasing for light text on 
      * dark backgrounds makes it look lighter.
      */
-    -webkit-font-smoothing: antialiased;
-    /**
+  -webkit-font-smoothing: antialiased;
+  /**
      * -moz-osx-font-smoothing: grayscale; -- Render text with grayscale anti-aliasing, 
      * as opposed to the subpixel. Switching from subpixel rendering to anti-aliasing 
      * for light text on dark backgrounds makes it look lighter.
      */
-    -moz-osx-font-smoothing: grayscale;
-    text-align: start;
-  }
+  -moz-osx-font-smoothing: grayscale;
+  text-align: start;
+}
 
-  :where(h1, h2, h3, h4, h5, h6) {
-    text-wrap: balance;
-  }
+:where(h1, h2, h3, h4, h5, h6) {
+  text-wrap: balance;
+}
 
-  :where(img, svg, video) {
-    max-inline-size: 100%;
-  }
+:where(img, svg, video) {
+  max-inline-size: 100%;
+}
 
-  :where(:not(pre) > code, kbd) {
-    white-space: nowrap;
-  }
+:where(:not(pre) > code, kbd) {
+  white-space: nowrap;
+}
 
-  :where(pre) {
-    direction: ltr;
-    max-inline-size: max-content;
-    min-inline-size: 0;
-    white-space: pre;
-    writing-mode: lr;
-  }
+:where(pre) {
+  direction: ltr;
+  max-inline-size: max-content;
+  min-inline-size: 0;
+  white-space: pre;
+  writing-mode: lr;
+}
 
-  :where(p) {
-    text-wrap: pretty;
-  }
+:where(p) {
+  text-wrap: pretty;
+}
 
-  :where(dialog) {
-    color: inherit;
-  }
+:where(dialog) {
+  color: inherit;
+}
 
-  @media (prefers-reduced-motion: no-preference) {
-    :where(html) {
-      scroll-behavior: smooth;
-    }
+@media (prefers-reduced-motion: no-preference) {
+  :where(html) {
+    scroll-behavior: smooth;
   }
 }

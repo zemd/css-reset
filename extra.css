@@ -1,22 +1,20 @@
-@layer reset {
-  :where(
-      a[href],
-      area,
-      button,
-      input:not(
-          [type="text"],
-          [type="email"],
-          [type="number"],
-          [type="password"],
-          [type=""],
-          [type="tel"],
-          [type="url"]
-        ),
-      label[for],
-      select,
-      summary,
-      [tabindex]:not([tabindex*="-"])
-    ) {
-    cursor: pointer;
-  }
+:where(
+    a[href],
+    area,
+    button,
+    input:not(
+        [type="text"],
+        [type="email"],
+        [type="number"],
+        [type="password"],
+        [type=""],
+        [type="tel"],
+        [type="url"]
+      ),
+    label[for],
+    select,
+    summary,
+    [tabindex]:not([tabindex*="-"])
+  ) {
+  cursor: pointer;
 }
