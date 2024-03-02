@@ -13,7 +13,20 @@ pnpm add @zemd/css-reset
 ## Usage
 
 ```css
-@import "@zemd/css-reset/reset.css";
+@import "@zemd/css-reset";
+/* @import @zemd/css/extra.css */ /* - imports additional styles that were not included in the default reset file */
+```
+
+Note: when using `@zemd/reset-css` with Tailwind you might also want to disable preflight styles: 
+
+```js
+// tailwind.config.js
+module.exports = {
+  // ...
+  corePlugins: {
+    preflight: false,
+  },
+}
 ```
 
 ## License

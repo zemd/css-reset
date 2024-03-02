@@ -2,7 +2,12 @@
   "name": "@zemd/css-reset",
   "version": "0.0.1",
   "license": "Apache-2.0",
-  "description": "css reset for modern web development",
+  "description": "CSS reset for modern web development",
+  "keywords": [
+    "css",
+    "reset",
+    "normalize"
+  ],
   "author": {
     "name": "Dmytro Zelenetskyi",
     "email": "dmytro.zelenetskyi@gmail.com",
@@ -17,7 +22,8 @@
     "url": "https://github.com/zemd/css-reset/issues"
   },
   "files": [
-    "reset.css"
+    "index.css",
+    "extra.css"
   ],
   "scripts": {
     "release": "changeset publish"
