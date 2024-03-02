@@ -14,7 +14,7 @@
      * When an element containing text uses 100% of the screen's width, 
      * the algorithm increases its text size, but without modifying the layout.
      */
-    text-size-adjust: 100%; /* apple.com sets this value in html, so am I */
+    text-size-adjust: 100%;
     /**
       * see more: https://developer.mozilla.org/en-US/docs/Web/CSS/quotes
       */
