@@ -1,5 +1,7 @@
 # @zemd/css-reset
 
+[![npm](https://img.shields.io/npm/v/@zemd/css-reset?color=0000ff&label=npm&labelColor=000)](https://npmjs.com/package/@zemd/css-reset)
+
 Simple and minimal CSS reset for modern web development.
 
 ## Installation
