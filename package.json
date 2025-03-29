@@ -23,7 +23,8 @@
   },
   "files": [
     "index.css",
-    "extra.css"
+    "extra.css",
+    "quotes.css"
   ],
   "scripts": {
     "release": "changeset publish"
