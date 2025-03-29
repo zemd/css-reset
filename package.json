@@ -2,11 +2,14 @@
   "name": "@zemd/css-reset",
   "version": "0.1.0",
   "license": "Apache-2.0",
+  "type": "module",
   "description": "CSS reset for modern web development",
   "keywords": [
     "css",
     "reset",
-    "normalize"
+    "normalize",
+    "css reset",
+    "tailwind"
   ],
   "author": {
     "name": "Dmytro Zelenetskyi",
@@ -16,10 +19,13 @@
   "homepage": "https://github.com/zemd/css-reset",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zemd/css-reset.git"
+    "url": "git+https://github.com/zemd/css-reset.git"
   },
   "bugs": {
     "url": "https://github.com/zemd/css-reset/issues"
+  },
+  "exports": {
+    "./package.json": "./package.json"
   },
   "files": [
     "index.css",
