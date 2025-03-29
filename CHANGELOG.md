@@ -1,5 +1,11 @@
 # @zemd/css-reset
 
+## 0.1.0
+
+### Minor Changes
+
+- edcf60e: Better compatibility with tailwind preflight
+
 ## 0.0.4
 
 ### Patch Changes
