@@ -1,5 +1,11 @@
 # @zemd/css-reset
 
+## 0.1.4
+
+### Patch Changes
+
+- 8c8f14f: Use browser margins for typography elements
+
 ## 0.1.3
 
 ### Patch Changes
