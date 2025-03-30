@@ -1,7 +1,6 @@
 /*
   1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
-  2. Remove default margins and padding
-  3. Reset all borders.
+  2. Reset all borders.
 */
 *,
 ::after,
@@ -9,13 +8,15 @@
 ::backdrop,
 ::file-selector-button {
   box-sizing: border-box; /* 1 */
-  margin: 0; /* 2 */
-  padding: 0; /* 2 */
-  border: 0 solid; /* 3 */
+  border: 0 solid; /* 2 */
 }
 
-:where(:not(dialog)) {
+/* 
+  Remove default margins and paddings except typography elements
+*/
+:where(:not(dialog, h1, h2, h3, h4, h5, h6, p)) {
   margin: 0;
+  padding: 0;
 }
 
 :where(html, :host) {

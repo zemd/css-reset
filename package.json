@@ -24,6 +24,16 @@
   "bugs": {
     "url": "https://github.com/zemd/css-reset/issues"
   },
+  "exports": {
+    "./package.json": "./package.json",
+    "./index.css": "./index.css",
+    "./index": "./index.css",
+    "./extra.css": "./extra.css",
+    "./extra": "./extra.css",
+    "./quotes.css": "./quotes.css",
+    "./quotes": "./quotes.css"
+  },
+  "style": "index.css",
   "files": [
     "index.css",
     "extra.css",
