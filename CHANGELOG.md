@@ -1,5 +1,11 @@
 # @zemd/css-reset
 
+## 0.1.5
+
+### Patch Changes
+
+- 31b02cd: Use default margings for lists
+
 ## 0.1.4
 
 ### Patch Changes
