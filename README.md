@@ -7,7 +7,6 @@ Simple and minimal CSS reset for modern web development.
 ## Installation
 
 ```sh
-bun add @zemd/css-reset
 npm install @zemd/css-reset
 pnpm add @zemd/css-reset
 ```

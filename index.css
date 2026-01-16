@@ -12,6 +12,13 @@
 }
 
 /* 
+  1. allows the browser to render default form controls and scrollbars in a dark theme automatically.
+*/
+:where(html) {
+  color-scheme: light dark; /* 1 */
+}
+
+/* 
   Remove default margins and paddings except typography elements
 */
 :where(:not(dialog, h1, h2, h3, h4, h5, h6, p, ul, ol, li)) {

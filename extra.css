@@ -18,3 +18,7 @@
   ) {
   cursor: pointer;
 }
+
+:where(button[disabled], input[disabled], select[disabled], textarea[disabled]) {
+  cursor: not-allowed;
+}
