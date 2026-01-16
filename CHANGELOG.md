@@ -1,5 +1,11 @@
 # @zemd/css-reset
 
+## 0.1.6
+
+### Patch Changes
+
+- d09567d: Minor change and repo maintenance
+
 ## 0.1.5
 
 ### Patch Changes
