@@ -10,7 +10,7 @@
 
 ### Patch Changes
 
-- 31b02cd: Use default margings for lists
+- 31b02cd: Use default margins for lists
 
 ## 0.1.4
 

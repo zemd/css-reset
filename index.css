@@ -11,17 +11,19 @@
   border: 0 solid; /* 2 */
 }
 
-/* 
-  1. allows the browser to render default form controls and scrollbars in a dark theme automatically.
+/*
+  Allows the browser to render default form controls and scrollbars
+  in a dark theme automatically when the user prefers dark mode.
 */
 :where(html) {
-  color-scheme: light dark; /* 1 */
+  color-scheme: light dark;
 }
 
 /* 
-  Remove default margins and paddings except typography elements
+  Remove default margins and paddings except typography elements.
+  `menu` is included alongside `ul` and `ol` since it behaves as an unordered list.
 */
-:where(:not(dialog, h1, h2, h3, h4, h5, h6, p, ul, ol, li)) {
+:where(:not(dialog, h1, h2, h3, h4, h5, h6, p, ul, ol, menu, li)) {
   margin: 0;
   padding: 0;
 }
@@ -39,25 +41,27 @@
   */
   quotes: "“" "”";
 
+  font-kerning: normal;
+  font-optical-sizing: auto;
+  line-height: calc(1em + 0.5rem);
+  tab-size: 2;
+  interpolate-size: allow-keywords;
+
   /*
-    font-feature-settings: controls advanced typographic features in OpenType fonts.
-    values: normal | "liga" 0 | "tnum" | "smcp", "zero" ...
-     
-    Tailwind sets the `font-feature-settings` inside `html`, so for better consistency
-    I override it here.
+    `accent-color: auto` lets browser-rendered controls (checkbox, radio,
+    range, progress) follow the active `color-scheme` automatically.
+    `caret-color: auto` ensures the text-input caret remains legible across
+    light/dark backgrounds.
   */
-  font-feature-settings: "kern";
-  /* block-size: 100%; */
-  tab-size: 4;
+  accent-color: auto;
+  caret-color: auto;
 }
 
 :where(body) {
   font-variant-ligatures: common-ligatures;
-  text-rendering: optimizeLegibility;
   font-weight: 400;
   font-style: normal;
-
-  /* min-block-size: 100%; */
+  overflow-wrap: break-word;
 }
 
 :where(body, input, textarea, select, button) {
@@ -68,8 +72,9 @@
     values: none | weight | style | small-caps
     allows multiple.
   */
-  font-synthesis: none;
-  font-feature-settings: "kern";
+  font-synthesis-weight: none;
+  font-synthesis-style: none;
+  font-synthesis-small-caps: none;
   /*
     -webkit-font-smoothing: antialised; -- Smooth the font on the level of the pixel, 
     as opposed to the subpixel.
@@ -83,6 +88,7 @@
     for light text on dark backgrounds makes it look lighter.
   */
   -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
   text-align: start;
 }
 
@@ -90,20 +96,20 @@
   text-wrap: balance;
 }
 
-:where(img, svg, video) {
+:where(img, svg, video, canvas, audio, iframe, embed, object) {
+  display: block;
   max-inline-size: 100%;
 }
 
-:where(:not(pre) > code, kbd) {
-  white-space: nowrap;
+:where(img, video) {
+  block-size: auto;
 }
 
 :where(pre) {
   direction: ltr;
-  max-inline-size: max-content;
-  min-inline-size: 0;
   white-space: pre;
-  writing-mode: lr;
+  writing-mode: horizontal-tb;
+  overflow: auto;
 }
 
 :where(p) {
@@ -112,13 +118,15 @@
 
 :where(dialog) {
   color: inherit;
+  background-color: inherit;
+  max-inline-size: 100%;
+  max-block-size: 100%;
 }
 
 /*
   Add the correct text decoration in Chrome, Edge, and Safari.
 */
 abbr:where([title]) {
-  -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted;
 }
 
@@ -148,12 +156,31 @@ abbr:where([title]) {
 }
 
 /*
+  Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+  Without this, these elements can push lines apart due to their default vertical-align.
+*/
+:where(sub, sup) {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+:where(sub) {
+  inset-block-end: -0.25em;
+}
+
+:where(sup) {
+  inset-block-end: 0.5em;
+}
+
+/*
   Reset links to optimize for opt-in styling instead of opt-out.
 */
 :where(a) {
   color: inherit;
-  -webkit-text-decoration: inherit;
-  text-decoration: inherit;
+  text-decoration-line: inherit;
+  text-decoration-style: inherit;
 }
 
 /*
@@ -166,6 +193,25 @@ abbr:where([title]) {
   text-indent: 0; /* 1 */
   border-color: inherit; /* 2 */
   border-collapse: collapse; /* 3 */
+}
+
+/*
+  Reset `fieldset` to behave as a regular block element.
+  By default, `fieldset` has `min-inline-size: min-content` which prevents it
+  from shrinking below its content's intrinsic width, causing unexpected layout
+  overflow in flex/grid containers.
+*/
+:where(fieldset) {
+  min-inline-size: 0;
+}
+
+/*
+  Remove default padding from `legend`.
+  Browsers apply inconsistent padding to `legend` elements, so we reset it
+  to allow predictable styling.
+*/
+:where(legend) {
+  padding: 0;
 }
 
 /*
@@ -190,25 +236,12 @@ abbr:where([title]) {
 }
 
 /*
-  Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
-*/
-:where(img, video) {
-  max-width: 100%;
-  height: auto;
-}
-
-/*
   1. Inherit font styles in all browsers.
   2. Remove border radius in all browsers.
   3. Remove background color in all browsers.
   4. Ensure consistent opacity for disabled states in all browsers.
 */
-button,
-input,
-select,
-optgroup,
-textarea,
-::file-selector-button {
+:where(button, input, select, optgroup, textarea, ::file-selector-button) {
   font: inherit; /* 1 */
   font-feature-settings: inherit; /* 1 */
   font-variation-settings: inherit; /* 1 */
@@ -236,7 +269,7 @@ textarea,
 /*
   Restore space after button.
 */
-::file-selector-button {
+:where(::file-selector-button) {
   margin-inline-end: 4px;
 }
 
@@ -254,15 +287,17 @@ textarea,
 @supports (not (-webkit-appearance: -apple-pay-button)) /* Not Safari */ or
   (contain-intrinsic-size: 1px) /* Safari 17+ */ {
   ::placeholder {
-    color: color-mix(in oklab, currentColor 50%, transparent);
+    color: color-mix(in oklch, currentColor 50%, transparent);
   }
 }
 
 /*
   Prevent resizing textareas horizontally by default.
+  Uses `block` instead of `vertical` for logical property consistency
+  with writing-mode-aware layouts.
 */
-textarea {
-  resize: vertical;
+:where(textarea) {
+  resize: block;
 }
 
 /*
@@ -317,9 +352,7 @@ textarea {
 /*
   Correct the inability to style the border radius in iOS Safari.
 */
-button,
-input:where([type="button"], [type="reset"], [type="submit"]),
-::file-selector-button {
+:where(button, input:is([type="button"], [type="reset"], [type="submit"]), ::file-selector-button) {
   appearance: button;
 }
 
@@ -341,5 +374,51 @@ input:where([type="button"], [type="reset"], [type="submit"]),
 @media (prefers-reduced-motion: no-preference) {
   :where(html) {
     scroll-behavior: smooth;
+  }
+}
+
+/*
+  Respect reduced-motion preferences by disabling smooth scrolling and
+  collapsing most transitions and animations to an imperceptible duration.
+
+  `animation-delay: -1ms` ensures animations jump to their end state immediately,
+  which is important for triggering `animationend` events that JavaScript may
+  depend on. Without it, a 0-duration animation might never fire those events.
+
+  Targets every element (not just `html`) because individual elements can
+  override inherited animation/transition behavior. `:where()` is intentionally
+  omitted — `!important` already wins on the cascade, and the universal
+  selector list (`*, ::before, ::after, ::backdrop, ::marker,
+  ::file-selector-button`) needs to cover all generated content.
+
+  Note: `scroll-behavior: smooth` is intentionally NOT reset here. The main
+  reset (`index.css`) only enables smooth scrolling inside
+  `@media (prefers-reduced-motion: no-preference)`, so users who prefer
+  reduced motion never get smooth scrolling in the first place.
+*/
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after,
+  *::backdrop,
+  *::marker,
+  *::file-selector-button {
+    animation-delay: -1ms !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/*
+  Windows High Contrast / forced-colors mode.
+  Re-enable the system-painted appearance for native form controls so that
+  buttons and inputs remain visible when the OS substitutes its own colors.
+  Without this, our `background-color: transparent` reset above can render
+  buttons as invisible hit-targets in forced-colors mode.
+*/
+@media (forced-colors: active) {
+  :where(button, input, select, textarea, ::file-selector-button) {
+    forced-color-adjust: auto;
   }
 }

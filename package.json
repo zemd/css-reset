@@ -14,7 +14,7 @@
   "author": {
     "name": "Dmytro Zelenetskyi",
     "email": "dmytro.zelenetskyi@gmail.com",
-    "url": "https://codeandgin.co"
+    "url": "https://zemd.dev"
   },
   "homepage": "https://github.com/zemd/css-reset",
   "repository": {
@@ -31,18 +31,22 @@
     "./extra.css": "./extra.css",
     "./extra": "./extra.css",
     "./quotes.css": "./quotes.css",
-    "./quotes": "./quotes.css"
+    "./quotes": "./quotes.css",
+    "./all.css": "./all.css",
+    "./all": "./all.css"
   },
   "style": "index.css",
   "files": [
     "index.css",
     "extra.css",
-    "quotes.css"
+    "quotes.css",
+    "all.css"
   ],
   "scripts": {
+    "changeset": "changeset",
     "release": "changeset publish"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.29.8"
+    "@changesets/cli": "^2.31.0"
   }
 }
