@@ -1,5 +1,11 @@
 # @zemd/css-reset
 
+## 1.0.0
+
+### Major Changes
+
+- 848cf2c: Reorganize reset styles, apply some modern CSS features.
+
 ## 0.1.6
 
 ### Patch Changes
